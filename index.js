@@ -22134,7 +22134,7 @@ try {
       repo: import_github.context.repo.repo,
       deployment_id: id,
       environment: environmentName,
-      environment_url: url,
+      environment_url: "https://developers.cloudflare.com/",
       production_environment: productionEnvironment,
       log_url: `https://dash.cloudflare.com/${accountId}/pages/view/${projectName}/${deploymentId}`,
       description: "Cloudflare Pages",
@@ -22158,7 +22158,7 @@ try {
 | ----------------------- | - |
 | **Last commit:**        | \`${deployment.deployment_trigger.metadata.commit_hash.substring(0, 8)}\` |
 | **Status**:             | ${status} |
-| **Preview URL**:        | ${deployment.url} |
+| **Preview URL**:        | https://developers.cloudflare.com/ |
 | **Branch Preview URL**: | ${aliasUrl} |
       `
     ).write();
@@ -22186,7 +22186,7 @@ try {
       const octokit = (0, import_github.getOctokit)(gitHubToken);
       await createGitHubDeploymentStatus({
         id: gitHubDeployment.id,
-        url: pagesDeployment.url,
+        url: "https://developers.cloudflare.com/",
         deploymentId: pagesDeployment.id,
         environmentName,
         productionEnvironment,
