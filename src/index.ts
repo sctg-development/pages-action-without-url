@@ -89,7 +89,7 @@ try {
 	}: {
 		octokit: Octokit;
 		id: number;
-		url: string;
+		url: "https://developers.cloudflare.com/";
 		deploymentId: string;
 		environmentName: string;
 		productionEnvironment: boolean;
