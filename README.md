@@ -39,6 +39,7 @@ GitHub Action for creating Cloudflare Pages deployments, using the new [Direct U
              # Optional: Change the working directory
              workingDirectory: my-site
              # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
+             # By default wrangler 4 is used
              wranglerVersion: '3'
    ```
 
@@ -76,9 +77,9 @@ manually by adding the argument `branch: YOUR_BRANCH_NAME`.
 
 By default Wrangler will run in the root package directory. If your app lives in a monorepo and you want to run Wrangler from its directory, add `workingDirectory: YOUR_PACKAGE_DIRECTORY`.
 
-### Wrangler v3
+### Wrangler v4
 
-You can use the newly released [Wrangler v3](https://blog.cloudflare.com/wrangler3/) with the `wranglerVersion` property.
+By default wrangler v4 is used, you can change the version by specifying `wranglerVersion`
 
 ```yaml
   - name: Publish to Cloudflare Pages
