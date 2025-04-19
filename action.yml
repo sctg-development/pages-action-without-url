@@ -1,4 +1,4 @@
-name: "Cloudflare Pages GitHub Action"
+name: "SCTG Pages GitHub Action"
 description: "Publish to Cloudflare Pages"
 branding:
   icon: "upload-cloud"
