@@ -45563,13 +45563,14 @@ try {
     return result;
   };
   const createPagesDeployment = async () => {
+    const cloudfareDepoyWord = parseInt(wranglerVersion) >= 4 ? "deploy" : "publish";
     await src_default.in(import_node_path.default.join(process.cwd(), workingDirectory))`
     $ export CLOUDFLARE_API_TOKEN="${apiToken}"
     if ${accountId} {
       $ export CLOUDFLARE_ACCOUNT_ID="${accountId}"
     }
   
-    $$ npx wrangler@${wranglerVersion} pages publish "${directory}" --project-name="${projectName}" --branch="${branch}"
+    $$ npx wrangler@${wranglerVersion} pages ${cloudfareDepoyWord} "${directory}" --project-name="${projectName}" --branch="${branch}"
     `;
     const response = await (0, import_undici.fetch)(
       `https://api.cloudflare.com/client/v4/accounts/${accountId}/pages/projects/${projectName}/deployments`,

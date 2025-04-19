@@ -40,13 +40,14 @@ try {
 
 	const createPagesDeployment = async () => {
 		// TODO: Replace this with an API call to wrangler so we can get back a full deployment response object
+		const cloudfareDepoyWord = parseInt(wranglerVersion) >= 4 ? "deploy" : "publish";
 		await shellac.in(path.join(process.cwd(), workingDirectory))`
     $ export CLOUDFLARE_API_TOKEN="${apiToken}"
     if ${accountId} {
       $ export CLOUDFLARE_ACCOUNT_ID="${accountId}"
     }
   
-    $$ npx wrangler@${wranglerVersion} pages publish "${directory}" --project-name="${projectName}" --branch="${branch}"
+    $$ npx wrangler@${wranglerVersion} pages ${cloudfareDepoyWord} "${directory}" --project-name="${projectName}" --branch="${branch}"
     `;
 
 		const response = await fetch(
