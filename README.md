@@ -20,12 +20,22 @@ GitHub Action for creating Cloudflare Pages deployments, using the new [Direct U
        name: Publish to Cloudflare Pages
        steps:
          - name: Checkout
-           uses: actions/checkout@v3
+           uses: actions/checkout@v4
 
          # Run a build step here if your project requires
+         # example:
+        - name: Use Node.js 22
+          uses: actions/setup-node@v4
+          with:
+            node-version: 22
+
+         - name: Build
+           run: |
+             npm install
+             npm run build
 
          - name: Publish to Cloudflare Pages
-           uses: cloudflare/pages-action@v1
+           uses: sctg-development/pages-action-without-url@v2
            with:
              apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
              accountId: YOUR_ACCOUNT_ID
@@ -83,7 +93,7 @@ By default wrangler v4 is used, you can change the version by specifying `wrangl
 
 ```yaml
   - name: Publish to Cloudflare Pages
-    uses: cloudflare/pages-action@v1
+    uses: sctg-development/pages-action-without-url@v2
     with:
       apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       accountId: YOUR_ACCOUNT_ID
