@@ -28,7 +28,7 @@ inputs:
   wranglerVersion:
     description: "The version of Wrangler to use"
     required: false
-    default: "2"
+    default: "4"
 runs:
   using: "node20"
   main: "index.js"
